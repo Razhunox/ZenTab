@@ -1,0 +1,229 @@
+/* Full screen setup */
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('Imagenes/AlienIdol.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+/* 1. Bottom-Left Corner Container */
+.bottom-left-corner {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+/* Music button styling & hover effect */
+.interactive-btn {
+    width: 80px;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.interactive-btn:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Slow spin animation */
+.spin {
+    animation: rotateBtn 3s linear infinite;
+}
+
+@keyframes rotateBtn {
+    from { transform: rotate(0deg) scale(1.1); }
+    to { transform: rotate(360deg) scale(1.1); }
+}
+
+/* 2. Center Container (Side-by-Side Layout) */
+.center-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between image and search bar */
+}
+
+/* Center Image Styling (shrinks when active) */
+.center-image {
+    width: 200px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.center-image:hover {
+    filter: brightness(1.2);
+}
+
+.center-container.active .center-image {
+    width: 120px; /* Shrinks down to make room for the bar */
+}
+
+/* Search Form Side-Expanding Animation */
+.search-form {
+    display: flex;
+    align-items: center;
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+}
+
+.center-container.active .search-form {
+    max-width: 350px;
+    opacity: 1;
+}
+
+/* Search Bar Input Styling */
+.search-input {
+    width: 300px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus {
+    border-color: #4CAF50;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Mini Gacha Game (Bottom-Center) */
+.gacha-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.gacha-btn {
+    width: 150px;
+    transition: transform 0.2s ease;
+}
+
+.gacha-btn:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.gacha-text {
+    color: #8fdef7;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-top: 5px;
+    text-shadow: 0 0 8px rgba(143, 222, 247, 0.6), 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Shake/Move side-to-side animation when clicked */
+.shake {
+    animation: shakeAnimation 0.4s ease-in-out;
+}
+
+@keyframes shakeAnimation {
+    0% { transform: translateX(0) rotate(0deg); }
+    20% { transform: translateX(-10px) rotate(-10deg); }
+    40% { transform: translateX(10px) rotate(10deg); }
+    60% { transform: translateX(-10px) rotate(-5deg); }
+    80% { transform: translateX(10px) rotate(5deg); }
+    100% { transform: translateX(0) rotate(0deg); }
+}
+
+/* Bottom-Left Controls Container (Side-by-side & Vertically Centered) */
+.music-controls {
+    display: flex;
+    align-items: center; /* This forces both buttons to align perfectly in the middle */
+    gap: 12px;           /* Space between the two buttons */
+}
+
+/* Next Song Button (LilithBoton) - Made smaller */
+.next-song-btn {
+    width: 48px;         /* Made smaller (change to 40px or 50px if you want it tinier/larger) */
+    perspective: 1000px;
+}
+
+/* 3D Horizontal Turnaround Animation */
+.flip-horizontal {
+    animation: flipHorizontalAnim 0.6s ease-in-out;
+}
+
+@keyframes flipHorizontalAnim {
+    0% {
+        transform: rotateY(0deg) scale(1);
+    }
+    50% {
+        transform: rotateY(180deg) scale(0.9);
+    }
+    100% {
+        transform: rotateY(360deg) scale(1);
+    }
+}
+
+/* Center Container Adjustments for the Title */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Space between title and the search/image block */
+}
+
+/* Cute Title Styling */
+.page-title {
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(143, 222, 247, 0.8), 0 0 20px rgba(255, 119, 219, 0.5), 0 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+/* Wrapper for the image and expanding search bar */
+.center-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Full-Height Right Side GIF Container */
+.right-gif-container {
+    position: fixed;
+    top: 50%;          /* Centers it vertically on the screen */
+    right: 20px;       /* Adds a little breathing room from the right edge */
+    transform: translateY(-50%);
+    width: 25vw;       /* Controls how wide it appears */
+    max-height: 90vh;  /* Prevents it from overflowing past the screen height */
+    z-index: -1;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The GIF itself, uncropped and fully visible */
+.right-gif {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Ensures the whole GIF is shown without cutting edges */
+}
